@@ -1,26 +1,27 @@
 var connection = require("./connection.js");
 
 var orm = {
-  selectAll: function(displayBurgers) {
+  selectAll: function(displayTable,cb) {
     var queryString = "SELECT * FROM ??";
     connection.query(queryString, [displayTable], function(err, result) {
       if (err) {
         throw err;
       }
-      console.log(result);
+      cb(result);
+      
     });
   },
-  insertOne: function(burgerName, devoured) {
+  insertOne: function(burgerName, devoured, cb) {
     var queryString = "insert into burgers set ?";
     connection.query(queryString, {burger_name: burgerName, devoured: devoured}, function(err, result) {
-      console.log(result);
+      cb(result);
     });
   },
   updateOne: function(whatToSelect) {
     var queryString = "";
 
-    connection.query(queryString, , function(err, result) {
-      console.log(result);
+    connection.query(queryString, function(err, result) {
+      
     });
   }
 };
