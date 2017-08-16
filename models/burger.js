@@ -8,13 +8,17 @@ var burgerAction = {
         });
     },
 
-    insert: function(cb) {
-        orm.insertOne("burgerName", devoured, function(res){
+    add: function(burgerName, cb) {
+        orm.insertRow(burgerName, function(res){
             cb(res);
         });
 
+    },
+    devour: function(id, cb) {
+        orm.devourToTrue(id, function(res){
+            cb(res);
+        });
     }
-    // orm.updateOne("");
 };
 
 module.exports = burgerAction;

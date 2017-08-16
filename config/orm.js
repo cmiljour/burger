@@ -11,17 +11,16 @@ var orm = {
       
     });
   },
-  insertOne: function(burgerName, devoured, cb) {
+  insertRow: function(burgerName, cb) {
     var queryString = "insert into burgers set ?";
-    connection.query(queryString, {burger_name: burgerName, devoured: devoured}, function(err, result) {
+    connection.query(queryString, {burger_name: burgerName, devoured: 0}, function(err, result) {
       cb(result);
     });
   },
-  updateOne: function(whatToSelect) {
-    var queryString = "";
-
+  devourToTrue: function(id, cb) {
+    var queryString = `UPDATE burgers SET devoured = TRUE WHERE id = ${id}`;
     connection.query(queryString, function(err, result) {
-      
+      cb(result);
     });
   }
 };
