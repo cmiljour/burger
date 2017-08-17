@@ -8,23 +8,18 @@ router.get("/", function(req,res){
             burgers: data
         };
         res.render("index", burgerTableList);
-       
     });
-    
 });
 
 router.put("/:id", function(req, res){
     var id = req.params.id;
-    burgerAction.devour(id, function(data){
-    });
+    burgerAction.devour(id);
     res.redirect("/");
 
 })
 
 router.post("/", function(req, res){
-    burgerAction.add(req.body.name, function(data){
-        
-    });
+    burgerAction.add(req.body.name);
     res.redirect("/");
    
 

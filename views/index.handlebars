@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row header">
     <div class="col-xs-12 center-block">
         <img src="assets/img/burger.jpg" alt="burger">
         <br>
@@ -8,7 +8,7 @@
 <br>  
 <div class="row">
   <div class="col-xs-12 col-sm-6">
-    <h3>EAT ME</h3>
+    <h3 class="h3align">EAT ME</h3>
     <ul>
       {{#each burgers}}
         {{#unless devoured}}
@@ -27,11 +27,11 @@
     </ul>
   </div>
   <div class="col-xs-12 col-sm-6">
-      <h3>Gobbled Up</h3>
+      <h3 class="h3align">Gobbled Up</h3>
       <ul>
           {{#each burgers}}
               {{#if devoured}}
-                <div class="box">
+                <div class="box col-sm-6">
                   {{this.burger_name}}
                 </div>
                 <br>  
@@ -41,12 +41,12 @@
   </div>
 </div>
   <div class="row">
-      <div class="center-block col-xs-12 col-sm-4 col-sm-offset-4">
-          <h3>Enter Your Own Simple Burger</h3>
+      <div class="alignTxt center-block col-xs-12 col-sm-4 col-sm-offset-4">
+          <h3>Enter Your Own Burger to Eat</h3>
           <form class="create-update-form add-form" action="/" method="POST">
               <div class="form-group">
                   <label for="burger" class="sr-only">Burger Name:</label>
-                  <input type="text" id="burger" name="name" placeholder="Burger Name" class="form-control" maxlength="30">
+                  <input type="text" id="burger" name="name" placeholder="Burger Name" class="form-control" maxlength="30" required>
               </div>
               <button type="submit" class="btn btn-danger">Order Now</button>
           </form>
