@@ -15,14 +15,11 @@ router.put("/:id", function(req, res){
     var id = req.params.id;
     burgerAction.devour(id);
     res.redirect("/");
-
 })
 
 router.post("/", function(req, res){
     burgerAction.add(req.body.name);
     res.redirect("/");
-   
-
 })
 
 module.exports = router;
